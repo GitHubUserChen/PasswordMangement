@@ -13,13 +13,13 @@ public class PasswordSave
         System.out.println("Please input your website:");
         String strInput = input.nextLine();
         fileWriter.write(strInput);
-        fileWriter.write("\t");
+        fileWriter.write(",");
         System.out.println("Please input your user name of this website:");
         strInput = input.nextLine();
         fileWriter.write(strInput);
-        fileWriter.write("\t");
+        fileWriter.write(",");
         fileWriter.write(password);
-        fileWriter.write("\n");
+        fileWriter.write("\r\n");
         fileWriter.close();
         System.out.println("Saving Success!");
         System.out.println("If you want to save another, please input 1.");
@@ -44,20 +44,20 @@ public class PasswordSave
     public static void save() throws IOException
     {
         Scanner input = new Scanner(System.in);
-        File file = new File("password.xlsx");
+        File file = new File("password.csv");
         FileWriter fileWriter = new FileWriter(file, true);
         System.out.println("Please input your website:");
         String strInput = input.nextLine();
         fileWriter.write(strInput);
-        fileWriter.write("\t");
+        fileWriter.write(",");
         System.out.println("Please input your user name of this website:");
         strInput = input.nextLine();
         fileWriter.write(strInput);
-        fileWriter.write("\t");
+        fileWriter.write(",");
         System.out.println("Please input your password:");
         strInput = input.nextLine();
         fileWriter.write(strInput);
-        fileWriter.write("\n");
+        fileWriter.write("\r\n");
         fileWriter.close();
         System.out.println("Saving Success!");
         System.out.println("If you want to save another password, please input 1.");
