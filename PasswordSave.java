@@ -5,21 +5,31 @@ import java.util.Scanner;
 
 public class PasswordSave
 {
+    public static String inputInfo(boolean passInputNeeded)
+    {
+        Scanner input = new Scanner(System.in);
+        String strInput = "";
+        System.out.println("Please input your website:");
+        strInput += input.nextLine();
+        System.out.println("Please input your user name of this website:");
+        strInput += ("," + input.nextLine());
+        if (passInputNeeded)
+        {
+            System.out.println("Please input your password of this website:");
+            strInput += ("," + input.nextLine());
+        }
+        return strInput;
+    }
+
     public static void save(String password) throws IOException
     {
         Scanner input = new Scanner(System.in);
-        File file = new File("password.xlsx");
+        File file = new File("password.csv");
         FileWriter fileWriter = new FileWriter(file, true);
-        System.out.println("Please input your website:");
-        String strInput = input.nextLine();
-        fileWriter.write(strInput);
-        fileWriter.write("\t");
-        System.out.println("Please input your user name of this website:");
-        strInput = input.nextLine();
-        fileWriter.write(strInput);
-        fileWriter.write("\t");
-        fileWriter.write(password);
-        fileWriter.write("\n");
+        String strInput = inputInfo(false);
+        strInput += ",";
+        strInput += password;
+        fileWriter.write(strInput + "\r\n");
         fileWriter.close();
         System.out.println("Saving Success!");
         System.out.println("If you want to save another, please input 1.");
@@ -44,20 +54,10 @@ public class PasswordSave
     public static void save() throws IOException
     {
         Scanner input = new Scanner(System.in);
-        File file = new File("password.xlsx");
+        File file = new File("password.csv");
         FileWriter fileWriter = new FileWriter(file, true);
-        System.out.println("Please input your website:");
-        String strInput = input.nextLine();
-        fileWriter.write(strInput);
-        fileWriter.write("\t");
-        System.out.println("Please input your user name of this website:");
-        strInput = input.nextLine();
-        fileWriter.write(strInput);
-        fileWriter.write("\t");
-        System.out.println("Please input your password:");
-        strInput = input.nextLine();
-        fileWriter.write(strInput);
-        fileWriter.write("\n");
+        String strInput = inputInfo(true);
+        fileWriter.write(strInput + "\r\n");
         fileWriter.close();
         System.out.println("Saving Success!");
         System.out.println("If you want to save another password, please input 1.");

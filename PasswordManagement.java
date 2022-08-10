@@ -17,6 +17,7 @@ public class PasswordManagement
         System.out.println("2. Save the existing password");
         System.out.println("3. List your information");
         System.out.println("4. Estimate the security of your password");
+        System.out.println("5. Encrypt/Decrypt your password");
         System.out.println("0. exit");
         System.out.println("Please input your choice:");
         int choice = input.nextInt();
@@ -36,9 +37,18 @@ public class PasswordManagement
         {
             estimate();
         }
+        else if (choice == 5)
+        {
+            encrypt();
+        }
         else if (choice == 0)
         {
             System.exit(0);
+        }
+        else
+        {
+            System.out.println("Invalid input!");
+            menu();
         }
     }
 
@@ -60,5 +70,8 @@ public class PasswordManagement
     public static void estimate() throws IOException
     {
         PasswordEstimate.estimate();
+    }
+    public static void encrypt() throws IOException {
+        PasswordEncrypt.process();
     }
 }
