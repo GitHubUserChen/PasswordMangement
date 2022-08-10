@@ -9,10 +9,19 @@ import java.security.SecureRandom;
 import java.util.Scanner;
 
 /**
- * PasswordEncrypt
+ * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li
+ * Project: Password Management System
+ * Date: 2022/8/10
+ * Description: This is a class used to encrypt password file
+ * and provide reusable methods for decryption.
  */
 public class PasswordEncrypt {
-
+  /**
+   * This method aims to generate key for encryption/decryption
+   * Parameters: seed for generating key
+   * Behavior: generate key
+   * Return values: key in the type of SecretKey
+   */
   public static SecretKey getKey(String seed) throws NoSuchAlgorithmException {
     KeyGenerator generator = KeyGenerator.getInstance("AES");
     SecureRandom random = new SecureRandom();
@@ -22,6 +31,12 @@ public class PasswordEncrypt {
     return key;
   }
 
+  /**
+   * This method aims to encrypt password file
+   * Parameters: password file, seed for generating key
+   * Behavior: get encrypted content
+   * Return values: encrypted content in the type of byte[]
+   */
   public static byte[] encrypt(String seed, byte[] content)
       throws InvalidKeyException, NoSuchAlgorithmException,
       NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
@@ -31,6 +46,12 @@ public class PasswordEncrypt {
     return encrypted;
   }
 
+  /**
+   * This method aims to read encrypted or decrypted password file
+   * Parameters: password file pathname
+   * Behavior: get file content
+   * Return values: decrypted or encrypted content in the type of byte[]
+   */
   public static byte[] read(String pathname) throws IOException {
     File file = new File(pathname);
     byte[] content = new byte[(int) file.length()];
@@ -40,6 +61,12 @@ public class PasswordEncrypt {
     return content;
   }
 
+  /**
+   * This method aims to write encrypted or decrypted password file
+   * Parameters: password file pathname, content to be written
+   * Behavior: write content to file
+   * Return values: null
+   */
   public static void write(byte[] content, String pathname) throws IOException {
     File encryptedFile = new File(pathname);
     FileOutputStream fos = new FileOutputStream(encryptedFile);
@@ -47,6 +74,12 @@ public class PasswordEncrypt {
     fos.close();
   }
 
+  /**
+   * This method aims to get seed from user
+   * Parameters: null
+   * Behavior: get seed from user
+   * Return values: seed in the type of String
+   */
   public static String getSeed() {
     Scanner input = new Scanner(System.in);
     System.out.println("Please input your seed:");
@@ -54,6 +87,12 @@ public class PasswordEncrypt {
     return seed;
   }
 
+  /**
+   * This method aims to show the options and execute the corresponding action
+   * Parameters: null
+   * Behavior: show the options and execute the corresponding action
+   * Return values: null
+   */
   public static void process() throws IOException {
     System.out.println("Encryption/Decryption");
     System.out.println("1. Encrypt your passwords");

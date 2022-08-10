@@ -1,12 +1,14 @@
-/**
- * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li Project: Password Management System Date:
- * 2022/8/10 Description: This is a class used to save password.
- */
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+
+/**
+ * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li
+ * Project: Password Management System
+ * Date: 2022/8/10
+ * Description: This is a class used to save password.
+ */
 
 public class PasswordSave {
 

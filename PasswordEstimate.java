@@ -1,11 +1,13 @@
-/**
- * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li Project: Password Management System Date:
- * 2022/8/10 Description: This is a class used to estimate the security of the password and give
- * score and feedback.
- */
-
 import java.io.IOException;
 import java.util.Scanner;
+
+/**
+ * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li
+ * Project: Password Management System
+ * Date: 2022/8/10
+ * Description: This is a class used to estimate the security of the password and give
+ * score and feedback.
+ */
 
 public class PasswordEstimate {
 
@@ -21,7 +23,11 @@ public class PasswordEstimate {
     System.out.println("Please input your password:");
     String password = input.nextLine();
     int score = 0;
-    boolean isTooShort = true, onlyNum = true, isUpper = false, isLower = false, isSymbol = false;
+    boolean isTooShort = true;
+    boolean onlyNum = true;
+    boolean isUpper = false;
+    boolean isLower = false;
+    boolean isSymbol = false;
     if (password.length() > 8) {
       isTooShort = false;
       score = score + 1;

@@ -1,19 +1,19 @@
-/**
- * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li Project: Password Management System Date:
- * 2022/8/10 Description: This is a class used to generate randomized password
- */
-
 import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li
+ * Project: Password Management System
+ * Date: 2022/8/10
+ * Description: This is a class used to generate randomized password
+ */
+
 public class PasswordGenerator {
 
   /**
-   * This method aims to give user instructions and call the generate method.
-   * Parameters: null
-   * Behavior: Give instructions and pass entered parameters to other method
-   * Return values: null
+   * This method aims to give user instructions and call the generate method. Parameters: null
+   * Behavior: Give instructions and pass entered parameters to other method Return values: null
    * Possible errors: null
    */
   public static void passGenerate() {
@@ -23,10 +23,6 @@ public class PasswordGenerator {
     choice = choice + input.next();
     System.out.println("Numbers available? Please input y or n:");
     choice = choice + input.next();
-    System.out.println(
-        "Please input the available symbols in password(Without spaces separating):");
-    System.out.println("If no symbol is available, please input null");
-    String symbolAvailable = input.next();
     System.out.println(
         "Please input the bound of length(if there wasn't a bound, please input -1):");
     System.out.print("minimum: ");
@@ -39,17 +35,18 @@ public class PasswordGenerator {
     if (maxLength == -1) {
       maxLength = 20;
     }
+    System.out.println(
+        "Please input the available symbols in password(Without spaces separating):");
+    System.out.println("If no symbol is available, please input null");
+    String symbolAvailable = input.next();
     Random randomGenerator = new Random();
     int passLength = randomGenerator.nextInt(maxLength - minLength + 1) + minLength;
     generate(choice, passLength, symbolAvailable);
   }
 
   /**
-   * This method aims to generate a random number.
-   * Parameters: null
-   * Behavior: Generate a random number
-   * Return values: A number in String type
-   * Possible errors: null
+   * This method aims to generate a random number. Parameters: null Behavior: Generate a random
+   * number Return values: A number in String type Possible errors: null
    */
   public static String randomNumGenerate() {
     Random randomGenerator = new Random();
@@ -57,16 +54,13 @@ public class PasswordGenerator {
   }
 
   /**
-   * This method aims to generate a random letter.
-   * Parameters: null
-   * Behavior: Generate a random letter
-   * Return values: A letter in String type
-   * Possible errors: null
+   * This method aims to generate a random letter. Parameters: null Behavior: Generate a random
+   * letter Return values: A letter in String type Possible errors: null
    */
   public static String randomLetterGenerate() {
     Random randomGenerator = new Random();
-    int UpperOrLower = randomGenerator.nextInt(2);
-    if (UpperOrLower == 0) {
+    int upperOrLower = randomGenerator.nextInt(2);
+    if (upperOrLower == 0) {
       return ("" + (char) ('a' + randomGenerator.nextInt(26)));
     } else {
       return ("" + (char) ('A' + randomGenerator.nextInt(26)));
@@ -74,11 +68,9 @@ public class PasswordGenerator {
   }
 
   /**
-   * This method aims to generate a random symbol.
-   * Parameters: String type symbols
-   * Behavior: Generate a random symbols which is available
-   * Return values: A symbol in String type
-   * Possible errors: null
+   * This method aims to generate a random symbol. Parameters: String type symbols Behavior:
+   * Generate a random symbols which is available Return values: A symbol in String type Possible
+   * errors: null
    */
   public static String randomSymbolGenerate(String symbolsAvailable) {
     int l = symbolsAvailable.length();
@@ -87,16 +79,12 @@ public class PasswordGenerator {
   }
 
   /**
-   * This method aims to generate a random password
-   * Parameters: String choice: The user choice of using letters and numbers
-   * Parameters: int passLength: The supposed length of the generated password
-   * Parameters: String symbolAvailable: The available symbols entered by user
-   * Behavior: Generate a random password with demand
-   * Return values: null
-   * Possible errors: null
+   * This method aims to generate a random password Parameters: String choice: The user choice of
+   * using letters and numbers Parameters: int passLength: The supposed length of the generated
+   * password Parameters: String symbolAvailable: The available symbols entered by user Behavior:
+   * Generate a random password with demand Return values: null Possible errors: null
    */
   public static void generate(String choice, int passLength, String symbolAvailable) {
-    Scanner input = new Scanner(System.in);
     String password = "";
     Random randomGenerator = new Random();
     for (int i = 0; i < passLength; i++) {
@@ -126,6 +114,7 @@ public class PasswordGenerator {
     System.out.println();
     System.out.print("Please input your choice: ");
 
+    Scanner input = new Scanner(System.in);
     int intChoice = input.nextInt();
     try {
       if (intChoice == 1) {

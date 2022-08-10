@@ -1,10 +1,12 @@
-/**
- * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li Project: Password Management System Date:
- * 2022/8/10 Description: This is a class used to show the saving password.
- */
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+
+/**
+ * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li
+ * Project: Password Management System
+ * Date: 2022/8/10
+ * Description: This is a class used to show the saving password.
+ */
 
 public class PasswordShow {
 
@@ -22,10 +24,10 @@ public class PasswordShow {
 
       InputStreamReader streamReader = new InputStreamReader(new FileInputStream(file),
           StandardCharsets.UTF_8);
-      BufferedReader bufferedReader = new BufferedReader(streamReader);
       System.out.println("Your stored passwords are below:");
       System.out.println("==============SHOW==============");
       System.out.println("Webisite\tUsername\tPassword");
+      BufferedReader bufferedReader = new BufferedReader(streamReader);
       while ((content = bufferedReader.readLine()) != null) {
         String[] str = content.split(",");
         System.out.println(str[0] + " " + str[1] + " " + str[2]);
