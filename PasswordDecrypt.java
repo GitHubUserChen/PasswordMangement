@@ -7,11 +7,12 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 public class PasswordDecrypt {
-    public static void decrypt() throws InvalidKeyException, NoSuchAlgorithmException, IOException,
-            IllegalBlockSizeException, BadPaddingException, NoSuchPaddingException {
-        Cipher cipher = Cipher.getInstance("AES");
-        cipher.init(Cipher.DECRYPT_MODE, PasswordEncrypt.getKey(PasswordEncrypt.getSeed()));
-        byte[] decrypted = cipher.doFinal(PasswordEncrypt.read("password.csv.encrypted"));
-        PasswordEncrypt.write(decrypted, "password_decrypted.csv");
-    }
+
+  public static void decrypt() throws InvalidKeyException, NoSuchAlgorithmException, IOException,
+      IllegalBlockSizeException, BadPaddingException, NoSuchPaddingException {
+    Cipher cipher = Cipher.getInstance("AES");
+    cipher.init(Cipher.DECRYPT_MODE, PasswordEncrypt.getKey(PasswordEncrypt.getSeed()));
+    byte[] decrypted = cipher.doFinal(PasswordEncrypt.read("password.csv.encrypted"));
+    PasswordEncrypt.write(decrypted, "password_decrypted.csv");
+  }
 }
