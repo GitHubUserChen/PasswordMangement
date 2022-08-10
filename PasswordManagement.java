@@ -1,8 +1,7 @@
 /**
- * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li
- * Project: Password Management System
- * Date: 2022/8/10
- * Description: This is the main class of the project, calling other methods to use functions.
+ * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li Project: Password Management System Date:
+ * 2022/8/10 Description: This is the main class of the project, calling other methods to use
+ * functions.
  */
 
 import java.io.IOException;

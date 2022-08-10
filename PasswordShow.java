@@ -1,7 +1,6 @@
 /**
- * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li
- * Project: Password Management System
- * Date: 2022/8/10 Description: This is a class used to show the saving password.
+ * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li Project: Password Management System Date:
+ * 2022/8/10 Description: This is a class used to show the saving password.
  */
 
 import java.io.*;
@@ -21,7 +20,8 @@ public class PasswordShow {
     String content;
     try {
 
-      InputStreamReader streamReader = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8);
+      InputStreamReader streamReader = new InputStreamReader(new FileInputStream(file),
+          StandardCharsets.UTF_8);
       BufferedReader bufferedReader = new BufferedReader(streamReader);
       System.out.println("Your stored passwords are below:");
       System.out.println("==============SHOW==============");
@@ -30,7 +30,7 @@ public class PasswordShow {
         String[] str = content.split(",");
         System.out.println(str[0] + " " + str[1] + " " + str[2]);
       }
-    }catch (IOException e) {
+    } catch (IOException e) {
       System.out.println("IOException.");
     }
   }

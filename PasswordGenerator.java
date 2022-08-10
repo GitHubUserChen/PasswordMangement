@@ -1,8 +1,6 @@
 /**
- * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li
- * Project: Password Management System
- * Date: 2022/8/10
- * Description: This is a class used to generate randomized password
+ * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li Project: Password Management System Date:
+ * 2022/8/10 Description: This is a class used to generate randomized password
  */
 
 import java.io.IOException;
@@ -25,10 +23,12 @@ public class PasswordGenerator {
     choice = choice + input.next();
     System.out.println("Numbers available? Please input y or n:");
     choice = choice + input.next();
-    System.out.println("Please input the available symbols in password(Without spaces separating):");
+    System.out.println(
+        "Please input the available symbols in password(Without spaces separating):");
     System.out.println("If no symbol is available, please input null");
     String symbolAvailable = input.next();
-    System.out.println("Please input the bound of length(if there wasn't a bound, please input -1):");
+    System.out.println(
+        "Please input the bound of length(if there wasn't a bound, please input -1):");
     System.out.print("minimum: ");
     int minLength = input.nextInt();
     if (minLength == -1) {
@@ -87,7 +87,7 @@ public class PasswordGenerator {
   }
 
   /**
-   * This method aims to generate a ramdom password
+   * This method aims to generate a random password
    * Parameters: String choice: The user choice of using letters and numbers
    * Parameters: int passLength: The supposed length of the generated password
    * Parameters: String symbolAvailable: The available symbols entered by user

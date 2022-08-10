@@ -1,8 +1,6 @@
 /**
- * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li
- * Project: Password Management System
- * Date: 2022/8/10
- * Description: This is a class used to save password.
+ * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li Project: Password Management System Date:
+ * 2022/8/10 Description: This is a class used to save password.
  */
 
 import java.io.File;
@@ -13,11 +11,9 @@ import java.util.Scanner;
 public class PasswordSave {
 
   /**
-   * This methods aims to check the input information.
-   * Parameters: boolean passInputNeeded
-   * Beahvior: Check the input infomation
-   * Return values: String strInput: the data input by user
-   * Possible errors: null
+   * These methods aim to check the input information. Parameters: boolean passInputNeeded Behavior:
+   * Check the input information Return values: String strInput: the data input by user Possible
+   * errors: null
    */
   public static String inputInfo(boolean passInputNeeded) {
     Scanner input = new Scanner(System.in);
@@ -34,11 +30,9 @@ public class PasswordSave {
   }
 
   /**
-   * This method aims to save the entered password.
-   * Parameters: String password: The password entered by user
-   * Behavior: Save the password to a local file
-   * Return values: null
-   * Possible errors: IOException: Print exception message
+   * This method aims to save the entered password. Parameters: String password: The password
+   * entered by user Behavior: Save the password to a local file Return values: null Possible
+   * errors: IOException: Print exception message
    */
   public static void save(String password) {
     Scanner input = new Scanner(System.in);
@@ -71,11 +65,8 @@ public class PasswordSave {
   }
 
   /**
-   * This method aims to save the entered password.
-   * Parameters: null
-   * Behavior: Save the password to a local file
-   * Return values: null
-   * Possible errors: IOException: Print exception message
+   * This method aims to save the entered password. Parameters: null Behavior: Save the password to
+   * a local file Return values: null Possible errors: IOException: Print exception message
    */
   public static void save() {
     Scanner input = new Scanner(System.in);
@@ -115,3 +106,4 @@ public class PasswordSave {
       System.out.println("IOException.");
     }
   }
+}
