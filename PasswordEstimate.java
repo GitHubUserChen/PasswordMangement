@@ -1,8 +1,23 @@
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li
+ * Project: Password Management System
+ * Date: 2022/8/10
+ * Description: This is a class used to estimate the security of the password and give
+ * score and feedback.
+ */
+
 public class PasswordEstimate {
 
+  /**
+   * This method aims to estimate the security of password and give score and feedback.
+   * Parameters: null
+   * Behavior: estimate the security of entered password and print score and feedback
+   * Return values: null
+   * Possible errors: IOException: Handle in other method
+   */
   public static void estimate() throws IOException {
     Scanner input = new Scanner(System.in);
     System.out.println("Please input your password:");

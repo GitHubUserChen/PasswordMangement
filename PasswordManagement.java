@@ -1,14 +1,34 @@
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li Project: Password Management System Date:
+ * 2022/8/10 Description: This is the main class of the project, calling other methods to use
+ * functions.
+ */
+
 public class PasswordManagement {
 
+  /**
+   * This method is the main method to start the program
+   * Parameters: null
+   * Behavior: Start program
+   * Return values: null
+   * Possible errors: IOException: Handle in other method
+   */
   public static void main(String[] args) throws IOException {
     System.out.println("==============WELCOME==============");
     System.out.println("Welcome to Password Management System!");
     menu();
   }
 
+  /**
+   * This method aims to show the main menu of the program
+   * Parameters: null
+   * Behavior: Show main menu and call functions
+   * Return values: null
+   * Possible errors: IOException: Print exception message
+   */
   public static void menu() throws IOException {
     Scanner input = new Scanner(System.in);
     System.out.println("==============MENU==============");
@@ -39,18 +59,46 @@ public class PasswordManagement {
     }
   }
 
+  /**
+   * This method aims to call the password generating function
+   * Parameters: null
+   * Behavior: Call password generate function
+   * Return values: null
+   * Possible errors: null
+   */
   public static void passGenerate() {
     PasswordGenerator.passGenerate();
   }
 
+  /**
+   * This method aims to call password saving function
+   * Parameters: null
+   * Behavior: Call password saving function
+   * Return values: null
+   * Possible errors: IOException: Handle in other method
+   */
   public static void save() throws IOException {
     PasswordSave.save();
   }
 
+  /**
+   * This method aims to call password showing function
+   * Parameters: null
+   * Behavior: Call password showing function
+   * Return values: null
+   * Possible errors: IOException: Handle in other method
+   */
   public static void show() throws IOException {
     PasswordShow.show();
   }
 
+  /**
+   * This method aims to call password security estimating function
+   * Parameters: null
+   * Behavior: Call password security estimating function
+   * Return values: null
+   * Possible errors: IOException: Handle in other method
+   */
   public static void estimate() throws IOException {
     PasswordEstimate.estimate();
   }
