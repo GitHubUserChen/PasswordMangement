@@ -1,3 +1,10 @@
+/**
+ * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li
+ * Project: Password Management System
+ * Date: 2022/8/10
+ * Description: This is a class used to save password.
+ */
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -5,6 +12,13 @@ import java.util.Scanner;
 
 public class PasswordSave {
 
+  /**
+   * This methods aims to check the input information.
+   * Parameters: boolean passInputNeeded
+   * Beahvior: Check the input infomation
+   * Return values: String strInput: the data input by user
+   * Possible errors: null
+   */
   public static String inputInfo(boolean passInputNeeded) {
     Scanner input = new Scanner(System.in);
     String strInput = "";
@@ -19,64 +33,85 @@ public class PasswordSave {
     return strInput;
   }
 
-  public static void save(String password) throws IOException {
-    File file = new File("password.csv");
-    FileWriter fileWriter = new FileWriter(file, true);
-    String strInput = inputInfo(false);
-    strInput += ",";
-    strInput += password;
-    fileWriter.write(strInput + "\r\n");
-    fileWriter.close();
-    System.out.println("Saving Success!");
-    System.out.println("==============CONTINUE==============");
-    System.out.println("1. Save another password");
-    System.out.println("2. Go back to menu");
-    System.out.println("0. Exit");
-    System.out.println();
-    System.out.print("Please input your choice: ");
+  /**
+   * This method aims to save the entered password.
+   * Parameters: String password: The password entered by user
+   * Behavior: Save the password to a local file
+   * Return values: null
+   * Possible errors: IOException: Print exception message
+   */
+  public static void save(String password) {
     Scanner input = new Scanner(System.in);
-    int choice = input.nextInt();
-    if (choice == 1) {
-      save();
-    } else if (choice == 2) {
-      PasswordManagement.menu();
-    } else {
-      System.exit(0);
+    File file = new File("password.csv");
+    try {
+      FileWriter fileWriter = new FileWriter(file, true);
+      String strInput = inputInfo(false);
+      strInput += ",";
+      strInput += password;
+      fileWriter.write(strInput + "\r\n");
+      fileWriter.close();
+      System.out.println("Saving Success!");
+      System.out.println("==============CONTINUE==============");
+      System.out.println("1. Save another password");
+      System.out.println("2. Go back to menu");
+      System.out.println("0. Exit");
+      System.out.println();
+      System.out.print("Please input your choice: ");
+      int choice = input.nextInt();
+      if (choice == 1) {
+        save();
+      } else if (choice == 2) {
+        PasswordManagement.menu();
+      } else {
+        System.exit(0);
+      }
+    } catch (IOException e) {
+      System.out.println("IOException.");
     }
   }
 
-  public static void save() throws IOException {
-    File file = new File("password.csv");
-    FileWriter fileWriter = new FileWriter(file, true);
-    String strInput = inputInfo(true);
-    fileWriter.write(strInput + "\r\n");
-    fileWriter.close();
-    System.out.println("Saving Success!");
-    System.out.println("==============CONTINUE==============");
-    System.out.println("1. Save another password");
-    System.out.println("2. Go back to menu");
-    System.out.println("0. Exit");
-    System.out.println();
-    System.out.print("Please input your choice: ");
+  /**
+   * This method aims to save the entered password.
+   * Parameters: null
+   * Behavior: Save the password to a local file
+   * Return values: null
+   * Possible errors: IOException: Print exception message
+   */
+  public static void save() {
     Scanner input = new Scanner(System.in);
-    int choice = input.nextInt();
-    if (choice == 1) {
-      System.out.println();
-      System.out.println("Saving this password for other websites or another password");
-      System.out.println("1. This password");
-      System.out.println("2. Another password");
+    File file = new File("password.csv");
+    try {
+      FileWriter fileWriter = new FileWriter(file, true);
+      String strInput = inputInfo(true);
+      fileWriter.write(strInput + "\r\n");
+      fileWriter.close();
+      System.out.println("Saving Success!");
+      System.out.println("==============CONTINUE==============");
+      System.out.println("1. Save another password");
+      System.out.println("2. Go back to menu");
+      System.out.println("0. Exit");
       System.out.println();
       System.out.print("Please input your choice: ");
-      choice = input.nextInt();
+      int choice = input.nextInt();
       if (choice == 1) {
-        save(strInput);
+        System.out.println();
+        System.out.println("Saving this password for other websites or another password");
+        System.out.println("1. This password");
+        System.out.println("2. Another password");
+        System.out.println();
+        System.out.print("Please input your choice: ");
+        choice = input.nextInt();
+        if (choice == 1) {
+          save(strInput);
+        } else {
+          save();
+        }
+      } else if (choice == 2) {
+        PasswordManagement.menu();
       } else {
-        save();
+        System.exit(0);
       }
-    } else if (choice == 2) {
-      PasswordManagement.menu();
-    } else {
-      System.exit(0);
+    } catch (IOException e) {
+      System.out.println("IOException.");
     }
   }
-}

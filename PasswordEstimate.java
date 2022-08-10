@@ -1,18 +1,28 @@
+/**
+ * Group members: Wenhao Chen, Yihang Wang, Chenfeng Li
+ * Project: Password Management System
+ * Date: 2022/8/10
+ * Description: This is a class used to estimate the security of the password and give score and feedback.
+ */
+
 import java.io.IOException;
 import java.util.Scanner;
 
 public class PasswordEstimate {
 
+  /**
+   * This method aims to estimate the security of password and give score and feedback.
+   * Parameters: null
+   * Behavior: estimate the security of entered password and print score and feedback
+   * Return values: null
+   * Possible errors: IOException: Handle in other method
+   */
   public static void estimate() throws IOException {
     Scanner input = new Scanner(System.in);
     System.out.println("Please input your password:");
     String password = input.nextLine();
     int score = 0;
-    boolean isTooShort = true;
-    boolean onlyNum = true;
-    boolean isUpper = false;
-    boolean isLower = false;
-    boolean isSymbol = false;
+    boolean isTooShort = true, onlyNum = true, isUpper = false, isLower = false, isSymbol = false;
     if (password.length() > 8) {
       isTooShort = false;
       score = score + 1;
@@ -48,8 +58,7 @@ public class PasswordEstimate {
     if (score == 0) {
       System.out.println("Your password is not safe at all! Here are some advise:");
       System.out.println("1. Use a longer password.");
-      System.out.println(
-          "2. Avoid using password consisted of only numbers, use letters and symbols also.");
+      System.out.println("2. Avoid using password consisted of only numbers, use letters and symbols also.");
     } else if (score == 1) {
       System.out.println("Your password is not safe. Here are some advise:");
     } else if (score == 2) {
@@ -65,16 +74,13 @@ public class PasswordEstimate {
       System.out.println("Your password is too short! Please change to a longer one.");
     }
     if (onlyNum) {
-      System.out.println(
-          "Your password is consisted of only numbers, please use letters and symbols also.");
+      System.out.println("Your password is consisted of only numbers, please use letters and symbols also.");
     }
     if (!isLower) {
-      System.out.println(
-          "Your password doesn't have lower letters, please use lower letters also.");
+      System.out.println("Your password doesn't have lower letters, please use lower letters also.");
     }
     if (!isUpper) {
-      System.out.println(
-          "Your password doesn't have upper letters, please use upper letters also.");
+      System.out.println("Your password doesn't have upper letters, please use upper letters also.");
     }
     if (!isSymbol) {
       System.out.println("Your password doesn't have symbols, please use symbols also.");

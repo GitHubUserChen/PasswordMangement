@@ -22,8 +22,7 @@ public class PasswordEncrypt {
     return key;
   }
 
-  public static byte[] encrypt(String seed, byte[] content)
-      throws InvalidKeyException, NoSuchAlgorithmException,
+  public static byte[] encrypt(String seed, byte[] content) throws InvalidKeyException, NoSuchAlgorithmException,
       NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
     Cipher cipher = Cipher.getInstance("AES");
     cipher.init(Cipher.ENCRYPT_MODE, getKey(seed));
