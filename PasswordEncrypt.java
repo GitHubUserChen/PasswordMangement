@@ -57,6 +57,44 @@ public class PasswordEncrypt {
         System.out.println("Please input your seed:");
         String seed = input.nextLine();
         return seed;
+    }
 
+    public static void process() throws IOException {
+        System.out.println("Encryption/Decryption");
+        System.out.println("1. Encrypt your passwords");
+        System.out.println("2. Decrypt your passwords");
+        System.out.println("3. Back to main menu");
+        System.out.println("0. Exit");
+        System.out.println("Please input your choice:");
+        Scanner input = new Scanner(System.in);
+        int choice = input.nextInt();
+        switch (choice) {
+            case 1:
+                try {
+                    write(encrypt(getSeed(), read("password.csv")), "password.csv.encrypted");
+                } catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException
+                        | IllegalBlockSizeException | BadPaddingException | IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case 2:
+                try {
+                    PasswordDecrypt.decrypt();
+                } catch (InvalidKeyException | NoSuchAlgorithmException | IllegalBlockSizeException
+                        | BadPaddingException | NoSuchPaddingException | IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case 3:
+                PasswordManagement.menu();
+                break;
+            case 0:
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Invalid choice!");
+                process();
+                break;
+        }
     }
 }
